@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Formulario</string>
+
+
+    <string name="log">Loggin</string>
+    <string name="pass">Password</string>
+    <string name="rpass">Repetir password</string>
+    <string name="correo">Correo electrónico</string>
+    <string name="fem">Femenino</string>
+    <string name="mas">Masculino</string>
+    <string name="hob">Hobbies</string>
+    <string name="soc">Fútbol</string>
+    <string name="vid">Videojuegos</string>
+    <string name="tv">Ver TV</string>
+    <string name="est">Estudiar</string>
+    <string name="acep">Aceptar</string>
+
+</resources>
