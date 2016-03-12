@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 new AdapterView.OnItemSelectedListener() {
                     public void onItemSelected(AdapterView<?> parent,
                                                android.view.View v, int position, long id) {
-                        lblMensaje.setText("Seleccionado: " +
+                        lblMensaje.setText("Ciudad: " +
                                 parent.getItemAtPosition(position));
                         ciudad = parent.getItemAtPosition(position).toString();
 
@@ -97,8 +97,13 @@ public class MainActivity extends AppCompatActivity {
                                          rpass = eRpass.getText().toString();
                                          correo = eCorreo.getText().toString();
                                          dia=fecha.getDayOfMonth();
-                                         mes=fecha.getMonth();
+                                         mes=fecha.getMonth()+1;
                                          anyo=fecha.getYear();
+                                         Calendar fecha = Calendar.getInstance();
+                                         int anyo1 = fecha.get(Calendar.YEAR);
+                                         int mes1 = fecha.get(Calendar.MONTH) + 1;
+                                         int dia1 = fecha.get(Calendar.DAY_OF_MONTH);
+
 
 
                                          if (eLoggin.getText().toString().trim().length() > 0 &&
@@ -110,23 +115,23 @@ public class MainActivity extends AppCompatActivity {
                                                  &&(op1.length() >0 || op2.length() >0 || op3.length() >0 || op4.length() >0)
 
                                                  ) {
-                                             if (anyo < 2016) {
+                                             if (anyo < anyo1) {
                                                  imprimir = "Loggin: " + loggin + "\n" + "Password: " + pass + "\n" +
                                                          "Correo electronico:  " + correo + "\n" + "Sexo: " +
                                                          op + "\n" + "Fecha de nacimiento:\n    Día: " + dia + " Mes: " +
                                                          mes + " Año: " + anyo + "\nCiudad: " + ciudad+ "\nHobbies: " + op1 +
                                                         ", " +op2 +", " +op3 +", " +op4;
                                              } else {
-                                                 if (anyo >= 2016) {
-                                                     if (anyo > 2016) {
+                                                 if (anyo >= anyo1) {
+                                                     if (anyo > anyo1) {
                                                          imprimir = "Fecha no valida";
                                                      } else {
-                                                         if (anyo == 2016) {
-                                                             if (mes > 3) {
+                                                         if (anyo == anyo1) {
+                                                             if (mes > mes1) {
                                                                  imprimir = "Fecha no valida";
                                                              } else {
-                                                                 if (mes == 3) {
-                                                                     if (dia > 7) {
+                                                                 if (mes == mes1) {
+                                                                     if (dia > dia1) {
                                                                          imprimir = "Fecha no valida";
                                                                      } else {
                                                                          imprimir = "Loggin: " + loggin + "\n" + "Password: " + pass + "\n" +
@@ -135,12 +140,12 @@ public class MainActivity extends AppCompatActivity {
                                                                                  mes + " Año: " + anyo + "\nCiudad: " + ciudad+ "\nHobbies: " + op1 +
                                                                                  ", " +op2 +", " +op3 +", " +op4;
                                                                      }
-                                                                 }
+                                                                 }else{
                                                                  imprimir = "Loggin: " + loggin + "\n" + "Password: " + pass + "\n" +
                                                                          "Correo electronico:  " + correo + "\n" + "Sexo: " +
                                                                          op + "\n" + "Fecha de nacimiento:\n    Día: " + dia + " Mes: " +
                                                                          mes + " Año: " + anyo + "\nCiudad: " + ciudad+ "\nHobbies: " + op1 +
-                                                                         ", " +op2 +", " +op3 +", " +op4;
+                                                                         ", " +op2 +", " +op3 +", " +op4;}
                                                              }
 
                                                          }
@@ -151,13 +156,21 @@ public class MainActivity extends AppCompatActivity {
                                                  }
                                              }
                                          }else{
-                                                 if (pass.equals(rpass) == false) {
+                                                 if (pass.equals(rpass) == false || pass.length()==0) {
                                                      imprimir = "No coinciden los passwords";
                                                  }else {
                                                      if (isEmailValid(eCorreo.getText().toString()) == false) {
                                                          imprimir = "Email no valido";
                                                      }else {
-                                                         imprimir = "Faltan datos";
+                                                         if (op1.length()==0 && op2.length()==0 && op3.length() ==0 && op4.length() ==0){
+                                                             imprimir= "Seleccione sus hobbies";
+                                                         }else{
+                                                             if (op.length() == 0){
+                                                                 imprimir="Seleccione sexo";
+                                                             }else{
+                                                                 imprimir="Falta el Loggin";
+                                                             }
+                                                         }
                                                      }
 
                                                  }

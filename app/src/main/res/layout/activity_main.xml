@@ -24,6 +24,7 @@
             android:textSize="20dp" />
         <EditText
             android:layout_width="match_parent"
+
             android:layout_height="wrap_content"
             android:id="@+id/eLoggin"/>
 
@@ -141,13 +142,14 @@
     </DatePicker>
 
         <TextView android:id="@+id/LblMensaje"
-            android:text="Selecciona_una_opcion"
+            android:text="Seleccione ciudad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="25dp"/>
+            android:textSize="20dp"/>
     <Spinner android:id="@+id/CmbOpciones"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:textSize="25dp"
         />
 
     <CheckBox android:id="@+id/checkbox_tv"
@@ -183,6 +185,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/eVista"
+        android:textSize="30dp"
         />
 
     </LinearLayout>
